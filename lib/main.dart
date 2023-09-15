@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:roll_dice/gradiant_container_w.dart';
 
+const gradStartColor = Color.fromARGB(255, 25, 9, 52);
+const gradEndColor = Color.fromARGB(255, 66, 29, 131);
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: Scaffold(
-        body: Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 60, 10, 147),
-          Color.fromARGB(255, 29, 1, 93)
-        ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-      ),
-      child: const Center(
-        child: Text(
-          'Hello23 World',
-          style: TextStyle(color: Colors.white, fontSize: 28),
-        ),
-      ),
-    )),
+      body: GradiantContainer(gradStartColor, gradEndColor),
+    ),
   ));
 }

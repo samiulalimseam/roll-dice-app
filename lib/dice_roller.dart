@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:roll_dice/final_variables.dart';
 
 class DiceRoller extends StatefulWidget {
   const DiceRoller({super.key});
@@ -9,16 +12,12 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 1;
+  var activeDiceImage = 'assets/images/dice-3.png';
   void rollDice() {
 // function body
-
+    var diceNumber = randomizer.nextInt(6) + 1;
     setState(() {
-      if (activeDiceImage == 6) {
-        activeDiceImage = 1;
-      } else {
-        activeDiceImage++;
-      }
+      activeDiceImage = 'assets/images/dice-$diceNumber.png';
     });
 
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -35,8 +34,7 @@ class _DiceRollerState extends State<DiceRoller> {
             decoration: BoxDecoration(
                 border: Border.all(width: 5),
                 borderRadius: BorderRadius.circular(20)),
-            child: Image.asset('assets/images/dice-$activeDiceImage.png',
-                width: 200)),
+            child: Image.asset(activeDiceImage, width: 200)),
         const SizedBox(
           height: 20,
         ),
